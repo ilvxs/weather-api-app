@@ -24,9 +24,18 @@ class WeatherService
 
         $response = $this->client->get($url);
 
-        return json_decode(
+        $data = json_decode(
             $response["body"],
             true
         );
+
+        if (isset($data["error"]))
+        {
+            throw new Exception(
+                $data["error"]["message"]
+            );
+        }
+
+        return $data;
     }
 }

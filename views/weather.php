@@ -10,12 +10,17 @@
 
     <body>
         <h1>Weather App</h1>
+
         <form>
             <input type="text" name="city" placeholder="Enter city">
-
-                <button> Search </button>
-
+            <button> Search </button>
         </form>
+
+        <?php if (isset($error) &&$error): ?>
+            <p style="color:red;">
+                <?= htmlspecialchars($error) ?>
+            </p>
+        <?php endif; ?>
 
         <?php if (isset($weather) && $weather): ?>
 

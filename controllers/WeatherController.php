@@ -12,12 +12,20 @@ class WeatherController
     public function index()
     {
         $weather = null;
+        $error = null;
 
         if (isset($_GET["city"]))
         {
-            $weather = $this->service->currentWeather(
-                $_GET["city"]
-            );
+            try{
+                $weather = $this->service->currentWeather(
+                    $_GET["city"]
+                );
+            }
+            catch(Exception  $e)
+            {
+                $error = $e->getMessage();
+
+            }
         }
 
         require __DIR__ . "/../views/weather.php";
