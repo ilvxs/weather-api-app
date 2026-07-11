@@ -54,4 +54,58 @@ class HttpClient
             $url
         );
     }
+
+    public function post(
+        string $url,
+        array $headers = [],
+        ?string $body = null
+    )
+    {
+        return $this->request(
+            "POST",
+            $url,
+            $headers,
+            $body
+        );
+    }
+
+    public function put(
+        string $url,
+        array $headers = [],
+        ?string $body = null
+    )
+    {
+        return $this->request(
+            "PUT",
+            $url,
+            $headers,
+            $body
+        );
+    }
+
+    public function patch(
+        string $url,
+        array $headers = [],
+        ?string $body = null
+    )
+    {
+        return $this->request(
+            "PATCH",
+            $url,
+            $headers,
+            $body
+        );
+    }
+
+    public function delete(
+        string $url,
+        array $headers = []
+    )
+    {
+        return $this->request(
+            "DELETE",
+            $url,
+            $headers
+        );
+    }
 }
